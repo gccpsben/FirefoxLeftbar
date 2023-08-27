@@ -1,0 +1,117 @@
+:root 
+{
+	/* These colours are (mainly) used by the
+	Container Tabs Plugin */
+	--uc-identity-colour-blue:      #7ED6DF;
+	--uc-identity-colour-turquoise: #55E6C1;
+	--uc-identity-colour-green:     #B8E994;
+	--uc-identity-colour-yellow:    #F7D794;
+	--uc-identity-colour-orange:    #F19066;
+	--uc-identity-colour-red:       #FC5C65;
+	--uc-identity-colour-pink:      #F78FB3;
+	--uc-identity-colour-purple:    #c361c7;
+
+    /* --uc-identity-colour-blue:      #7ed5df41;
+	--uc-identity-colour-turquoise: #55e6c242;
+	--uc-identity-colour-green:     #b7e99446;
+	--uc-identity-colour-yellow:    #f7d8942d;
+	--uc-identity-colour-orange:    #f1906634;
+	--uc-identity-colour-red:       #fc5c643a;
+	--uc-identity-colour-pink:      #f78fb333;
+	--uc-identity-colour-purple:    #786fa636; */
+
+	/*  Cascades main Colour Scheme */
+	--uc-base-colour:               #1E2021;
+	--uc-highlight-colour:          #191B1C;
+	--uc-inverted-colour:           #FAFAFC;
+	--uc-muted-colour:              #AAAAAC;
+	--uc-accent-colour:             var(--uc-identity-colour-purple);
+	--uc-shadow-colour:             #000000;
+}
+
+* { overflow: hidden; }
+
+#topmenu 
+{ 
+    position:absolute; transform:translateY(-40px); 
+    background: var(--uc-highlight-colour);
+}
+body:hover #topmenu 
+{ 
+	opacity:1; right: 0;
+	position:fixed; bottom:0px; z-index:99999;
+	left:0px; transform:translateY(0px); 
+}
+
+#tablist-wrapper { transition: all 0.5s; }
+body:hover #tablist-wrapper
+{
+	height: calc(100svh + 40px) !important;
+	transform:translateY(0px);
+}
+
+#tablist-wrapper, #pinnedtablist { background: var(--uc-base-colour); }
+
+.tab
+{
+    /* background: var(--identity-color); */
+    color:var(--identity-color) !important; 
+    transform:translateX(-3px); 
+    padding-right: 3px !important;
+    width: calc(100% + 10px) !important;
+}
+
+.tab:hover, .tab.active 
+{ 
+    background: var(--uc-highlight-colour); 
+}
+
+#tablist-wrapper .tab-title-wrapper 
+{
+	opacity: 0;
+	transform: translateX(-10px);
+	transition: all 200ms ease;
+	transition-delay: 0ms;
+}
+
+body:hover #tablist-wrapper .tab-title-wrapper 
+{
+	opacity: 1;
+	transform: translateX(0);
+	transition-delay: 50ms;
+}
+
+.tab,
+.tab.active { border-bottom: none !important; }
+#pinnedtablist:not(.compact) .tab { padding: 6px; }
+#tablist .tab { padding: 0 0 0 13px; }
+.tab { overflow: visible; }
+
+#tablist .tab[data-identity-color] .tab-context::after 
+{
+	position: absolute;
+	top: 4px; bottom: 4px;
+    left:5px; right:10px;
+	width: 2px; margin:0px;
+	background: var(--identity-color);
+	content: '';
+    opacity: 0.5;
+}
+
+#pinnedtablist:not(.compact) .tab .tab-pin,
+
+#pinnedtablist:not(.compact) .tab[data-identity-color] .tab-context { box-shadow: none !important; }
+
+[data-identity-color="blue"]      { --identity-color: var(--uc-identity-colour-blue); }
+[data-identity-color="turquoise"] { --identity-color: var(--uc-identity-colour-turquoise); }
+[data-identity-color="green"]     { --identity-color: var(--uc-identity-colour-green); }
+[data-identity-color="yellow"]    { --identity-color: var(--uc-identity-colour-yellow); }
+[data-identity-color="orange"]    { --identity-color: var(--uc-identity-colour-orange); }
+[data-identity-color="red"]       { --identity-color: var(--uc-identity-colour-red); }
+[data-identity-color="pink"]      { --identity-color: var(--uc-identity-colour-pink); }
+[data-identity-color="purple"]    { --identity-color: var(--uc-identity-colour-purple); }
+
+.can-scroll-top #tablist { mask: linear-gradient(transparent, var(--uc-shadow-colour) 30px); }
+.can-scroll-bottom #tablist { mask: linear-gradient(var(--uc-shadow-colour) calc(100% - 30px), transparent); }
+.can-scroll-bottom.can-scroll-top #tablist { mask: linear-gradient(transparent, var(--uc-shadow-colour) 30px calc(100% - 30px), transparent); }
+#topshadow, #bottomshadow { display: none; }
