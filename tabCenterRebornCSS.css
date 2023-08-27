@@ -98,6 +98,8 @@ body:hover #tablist-wrapper .tab-title-wrapper
     opacity: 0.5;
 }
 
+.tab-close, .tab-loading-burst { color:red !important; transform:translateX(-8px); }
+
 #pinnedtablist:not(.compact) .tab .tab-pin,
 
 #pinnedtablist:not(.compact) .tab[data-identity-color] .tab-context { box-shadow: none !important; }
